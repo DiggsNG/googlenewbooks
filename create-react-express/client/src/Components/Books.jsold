@@ -1,0 +1,59 @@
+import React, { Component } from 'react';
+import { Container, Row, Col,} from '../Components/Grid';
+
+class Books extends Component {
+  render() {
+    let bookItems;
+    if (this.props.books) {
+      bookItems = this.props.books.map(book => {
+        let id = book.id;
+        let title = book.volumeInfo.title;
+        let thumbnail = book.volumeInfo.imageLinks.thumbnail;
+        let categories = book.volumeInfo.categories;
+        let authors = book.volumeInfo.authors;
+        let publisher = book.volumeInfo.publisher;
+        let description = book.volumeInfo.description;
+        let pageCount = book.volumeInfo.pageCount;
+        let publishedDate = book.volumeInfo.publishedDate;
+        let averageRating = book.volumeInfo.averageRating;
+        let buyLink = book.saleInfo.buyLink;
+        return (
+          <Container key={id} header={title} eventKey={id}>
+              <Row>
+                <Col xs={3} md={3} lg={3}>
+                  <img src={thumbnail} alt="presentation" />
+                </Col>
+                <Col xs={8} md={8} lg={8}>
+                  <ul>
+                    <li><strong>Categories: </strong>{categories}</li>
+                    <li><strong>Authors: </strong>{authors}</li>
+                    <li><strong>Description: </strong>{description}</li>
+                    <li><strong>Publish Date: </strong>{publishedDate}</li>
+                    <li><strong>Page Count: </strong>{pageCount}</li>
+                    <li><strong>Average Rating: </strong><span className="rating">{averageRating}</span></li>
+                  </ul>
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={11} md={11} lg={11}>
+                  <h3>Book Description</h3>
+                  {description}
+                  <hr />
+                  {/* <Button href={buyLink} bsStyle="primary">Buy Now</Button> */}
+                </Col>
+              </Row>
+            </Container>
+        );
+      });
+    }
+    return (
+      <div>
+        <col>
+          {bookItems}
+        </col>
+      </div>
+    );
+  }
+}
+
+export default Books;
