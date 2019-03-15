@@ -1,16 +1,7 @@
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: [],
-      text: 'Harry Potter'
-    };
-  }
+import axios from "axios";
 
-  componentDidMount() {
-    this.getBooks();
-  }
 
+export default {
   getBooks() {
     axios.request({
       method: 'get',
@@ -22,9 +13,6 @@ class App extends Component {
     }).catch((error) => {
       console.log(error);
     });
-  }
-
-  handleChange(text) {
-    this.setState({text: text}, this.getBooks());
-  }
+  
+}
 }
