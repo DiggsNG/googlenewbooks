@@ -25,7 +25,7 @@ class Books extends Component {
         let publishedDate = book.volumeInfo.publishedDate;
         let averageRating = book.volumeInfo.averageRating;
         let buyLink = book.saleInfo.buyLink;
-      )
+      )};
    componentDidMount() {
     this.loadBooks();
   };
@@ -96,7 +96,7 @@ class Books extends Component {
         </Row>
     </Container>
     );
-};
 }};
-}
+};
+
 
