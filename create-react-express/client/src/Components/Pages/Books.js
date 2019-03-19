@@ -10,9 +10,8 @@ import { Input, TextArea, FormBtn } from "../components/Form";
 
 
 class Books extends Component {
-  render() {
-    let bookItems;
-    if (this.props.books) {
+    
+   
       bookItems = this.props.books.map(book => {
         let id = book.id;
         let title = book.volumeInfo.title;
@@ -21,14 +20,9 @@ class Books extends Component {
         let authors = book.volumeInfo.authors;
         let publisher = book.volumeInfo.publisher;
         let description = book.volumeInfo.description;
-        let pageCount = book.volumeInfo.pageCount;
-        let publishedDate = book.volumeInfo.publishedDate;
-        let averageRating = book.volumeInfo.averageRating;
-        let buyLink = book.saleInfo.buyLink;
-      )};
-   componentDidMount() {
-    this.loadBooks();
-  };
+        
+      )}
+  
 
   loadBooks = () => {
     API.getBooks()
@@ -95,8 +89,9 @@ class Books extends Component {
             </Col>
         </Row>
     </Container>
-    );
-}};
-};
+    )
+  };
+
+
 
 
